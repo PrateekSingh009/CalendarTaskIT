@@ -20,15 +20,7 @@ A Calendar App in which a user can also manage their daily tasks.
 - XML
  
  ## Screenshots
-![Screenshot_2024-06-04-14-41-44-98_6259014316ef4afbfc546e431f4f9d7c 1]()
-![Screenshot_2024-06-04-14-46-28-70_6259014316ef4afbfc546e431f4f9d7c 1]()
-![Screenshot_2024-06-04-14-42-14-56_6259014316ef4afbfc546e431f4f9d7c 1]()
-![Screenshot_2024-06-04-14-42-08-00_6259014316ef4afbfc546e431f4f9d7c 1]()
-
-
-
 <table>
-
   <tr>
     <td><img src="https://github.com/PrateekSingh009/CalendarTaskIT/assets/56078678/3d43e281-2fa0-40b6-9898-21bce3b7a154" width=200 ></td>
     <td><img src="https://github.com/PrateekSingh009/CalendarTaskIT/assets/56078678/598ea5d3-b45a-4d6b-b1c7-8437fd658f6e" width=200 ></td>
