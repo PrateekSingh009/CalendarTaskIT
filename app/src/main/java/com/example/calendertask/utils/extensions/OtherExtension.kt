@@ -4,6 +4,8 @@ import android.content.res.Resources
 import android.graphics.Rect
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
+import com.example.calendertask.main.ui.MonthCalendar
+import com.example.calendertask.model.ItemDayTask
 import com.google.android.material.textfield.TextInputEditText
 
 inline fun TextInputEditText.checkEmpty(s : String) {
@@ -20,3 +22,7 @@ fun DialogFragment.setWidthPercent(percentage: Int) {
     val percentWidth = rect.width() * percent
     dialog?.window?.setLayout(percentWidth.toInt(), ViewGroup.LayoutParams.WRAP_CONTENT)
 }
+
+fun getDefaultItemDay(day: Int, month: Int, year: Int) = ItemDayTask(MonthCalendar().generateIdBasedOnDate(day,month,year),day,month,year,
+    listOf()
+)

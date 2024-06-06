@@ -7,15 +7,16 @@ import com.example.calendertask.model.ItemDayTask
 import com.example.calendertask.utils.extensions.dayOfWeekToInt
 import java.time.LocalDate
 import java.time.YearMonth
+import java.util.Calendar
 
 class MonthCalendar {
 
-    fun getFirstDayOfMonth(year: Int, month: Int): Int {
+    private fun getFirstDayOfMonth(year: Int, month: Int): Int {
         val firstDayOfMonth = LocalDate.of(year, month, 1)
         return firstDayOfMonth.dayOfWeek.toString().dayOfWeekToInt()
     }
 
-    fun getTotalDaysInMonth(year: Int, month: Int): Int {
+    private fun getTotalDaysInMonth(year: Int, month: Int): Int {
         val yearMonth = YearMonth.of(year, month)
         return yearMonth.lengthOfMonth()
     }
@@ -27,11 +28,24 @@ class MonthCalendar {
 
         val list = arrayListOf<ItemDayTask>()
         for(i in 1..<firstDay){
-            list.add(ItemDayTask(0,0,0,0, null))
+            list.add(ItemDayTask("",0,0,0, null))
         }
         for(i in 1..totalDays){
-            list.add(ItemDayTask(0,i,month,year, null))
+                list.add(ItemDayTask(generateIdBasedOnDate(i,month,year),i,month,year, null))
         }
         return list
+    }
+
+     fun generateIdBasedOnDate(day: Int, month:Int, year:Int): String {
+//        val calendar = Calendar.getInstance()
+        val year = year
+        val month = month
+        val day = day
+//        val hour = calendar.get(Calendar.HOUR_OF_DAY)
+//        val minute = calendar.get(Calendar.MINUTE)
+//        val second = calendar.get(Calendar.SECOND)
+//        val millisecond = calendar.get(Calendar.MILLISECOND)
+        return "${year}${String.format("%02d", month)}${String.format("%02d", day)}"
+//        return "${year}${String.format("%02d", month)}${String.format("%02d", day)}${String.format("%02d", hour)}${String.format("%02d", minute)}${String.format("%02d", second)}${String.format("%03d", millisecond)}"
     }
 }

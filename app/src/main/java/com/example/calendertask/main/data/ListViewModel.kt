@@ -29,7 +29,7 @@ class ListViewModel @Inject constructor(private val repository: ListRepository) 
 
     fun getTaskListFromRetrofit(year : Int , month : Int, day : Int) {
         viewModelScope.launch {
-            _taskListLiveData.postValue(repository.getTaskListFromRetrofit(year,month,day))
+            _taskListLiveData.postValue(repository.getDayTaskListFromRetrofit(year,month,day))
         }
     }
 

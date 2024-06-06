@@ -13,7 +13,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    val baseURL = "http://dev.frndapp.in:8085"
+    val baseURL = "https://4k9oy.wiremockapi.cloud/"
 
     @Provides
     @Singleton
