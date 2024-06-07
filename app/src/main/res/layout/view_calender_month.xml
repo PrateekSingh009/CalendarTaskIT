@@ -9,9 +9,11 @@
         android:id="@+id/view_calendar_month_layout_days"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/app_black"
+        android:background="@drawable/upper_rounded_rect"
         android:orientation="horizontal"
         android:paddingBottom="10dp"
+        android:paddingStart="13dp"
+        android:paddingEnd="13dp"
         android:paddingTop="10dp">
 
         <TextView

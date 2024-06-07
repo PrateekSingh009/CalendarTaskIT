@@ -9,7 +9,10 @@
         android:layout_height="60dp"
         android:background="@drawable/rounded_rect"
         android:backgroundTint="@color/app_black"
-        android:layout_margin="5dp">
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp">
 
         <ImageButton
             android:id="@+id/activity_main_pager_button_left_arrow"
@@ -69,10 +72,37 @@
         android:layout_height="wrap_content"
         layout="@layout/view_calender_month" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/date_rview"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white" />
+        android:orientation="horizontal"
+        android:background="@color/app_black">
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="match_parent"
+            android:background="@color/app_black"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/date_rview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:background="@drawable/rounded_rect"
+            android:backgroundTint="@color/white"/>
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="match_parent"
+            android:background="@color/app_black"/>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:background="@drawable/lower_rounded_rect"/>
 
 </LinearLayout>
