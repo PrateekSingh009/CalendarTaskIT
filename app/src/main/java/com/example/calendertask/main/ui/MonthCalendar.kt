@@ -4,7 +4,9 @@ import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
 import com.example.calendertask.model.ItemDayTask
+import com.example.calendertask.model.ItemTask
 import com.example.calendertask.utils.extensions.dayOfWeekToInt
+import com.example.calendertask.utils.extensions.getDefaultItemDay
 import java.time.LocalDate
 import java.time.YearMonth
 import java.util.Calendar
@@ -47,5 +49,15 @@ class MonthCalendar {
 //        val millisecond = calendar.get(Calendar.MILLISECOND)
         return "${year}${String.format("%02d", month)}${String.format("%02d", day)}"
 //        return "${year}${String.format("%02d", month)}${String.format("%02d", day)}${String.format("%02d", hour)}${String.format("%02d", minute)}${String.format("%02d", second)}${String.format("%03d", millisecond)}"
+    }
+
+    fun mergeTasksByYear(itemDayTasks: List<ItemDayTask>?): List<Pair<Int, List<ItemTask>>>? {
+        return itemDayTasks?.groupBy { it.year }
+            ?.mapValues { entry ->
+                entry.value.flatMap { it.task?.map { task -> ItemTask("${it.year}_${String.format("%02d", it.month)}_${String.format("%02d", it.day)}", task) } ?: emptyList() }
+            }
+            ?.toList()
+            ?.sortedBy { it.first }
+
     }
 }

@@ -19,6 +19,24 @@ fun Int.monthToString() : String {
     }
 }
 
+fun Int.monthToTrimmedString() : String {
+    return when(this) {
+        1 -> "Jan"
+        2 -> "Feb"
+        3 -> "Mar"
+        4 -> "Apr"
+        5 -> "May"
+        6 -> "Jun"
+        7 -> "Jul"
+        8 -> "Aug"
+        9 -> "Sept"
+        10 -> "Oct"
+        11 -> "Nov"
+        12 -> "Dec"
+        else -> ""
+    }
+}
+
 fun String.dayOfWeekToInt() : Int {
     return when(this) {
         "SUNDAY" -> 7
@@ -31,6 +49,8 @@ fun String.dayOfWeekToInt() : Int {
         else -> 0
     }
 }
+
+fun String.dateSeparator() : List<Int> = this.split("_").map { it.toInt() }
 
 fun dateToString(year : Int, month : Int, day : Int) : String{
     return month.monthToString() + ", " + day + " " + year

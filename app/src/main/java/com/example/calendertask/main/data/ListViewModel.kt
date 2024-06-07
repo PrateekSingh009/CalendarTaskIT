@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.calendertask.model.ItemDayTask
+import com.example.calendertask.model.ItemTask
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -18,8 +19,8 @@ class ListViewModel @Inject constructor(private val repository: ListRepository) 
     val _taskListLiveData = MutableLiveData<ItemDayTask>()
     val taskListLiveData: LiveData<ItemDayTask> = _taskListLiveData
 
-    val _myTaskListLiveData = MutableLiveData<List<ItemDayTask>>()
-    val myTaskListLiveData: LiveData<List<ItemDayTask>> = _myTaskListLiveData
+    val _myTaskListLiveData = MutableLiveData<List<Pair<Int, List<ItemTask>>>?>()
+    val myTaskListLiveData: LiveData<List<Pair<Int, List<ItemTask>>>?> = _myTaskListLiveData
 
     fun getDaysFromRetrofit(year : Int , month : Int) {
         viewModelScope.launch {

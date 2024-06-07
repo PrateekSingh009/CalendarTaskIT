@@ -9,9 +9,11 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.calendertask.R
 import com.example.calendertask.databinding.FragmentTaskListBinding
+import com.example.calendertask.main.adapter.ListAdapter
 import com.example.calendertask.main.adapter.MyListAdapter
 import com.example.calendertask.main.data.ListViewModel
 import com.example.calendertask.model.ItemDayTask
+import com.example.calendertask.model.ItemTask
 import com.example.calendertask.utils.extensions.replaceFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -54,7 +56,7 @@ class TaskListFragment: Fragment() {
     private fun onItemClick(item : ItemDayTask) {
     }
 
-    private fun setupRecyclerView(list : List<ItemDayTask>?) {
+    private fun setupRecyclerView(list : List<Pair<Int, List<ItemTask>>>?) {
         if (list != null) {
             binding.taskRview.apply {
                 adapter = MyListAdapter(list)
